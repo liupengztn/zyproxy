@@ -151,14 +151,14 @@ public class DisplayUtils {
 	private static synchronized void createZapIconImages() {
 		if (zapIconImages == null) {
 			List<Image> images = new ArrayList<>(8);
-			images.add(Toolkit.getDefaultToolkit().getImage(DisplayUtils.class.getResource("/resource/zap16x16.png")));
-			images.add(Toolkit.getDefaultToolkit().getImage(DisplayUtils.class.getResource("/resource/zap32x32.png")));
-			images.add(Toolkit.getDefaultToolkit().getImage(DisplayUtils.class.getResource("/resource/zap48x48.png")));
-			images.add(Toolkit.getDefaultToolkit().getImage(DisplayUtils.class.getResource("/resource/zap64x64.png")));
-			images.add(Toolkit.getDefaultToolkit().getImage(DisplayUtils.class.getResource("/resource/zap128x128.png")));
-			images.add(Toolkit.getDefaultToolkit().getImage(DisplayUtils.class.getResource("/resource/zap256x256.png")));
-			images.add(Toolkit.getDefaultToolkit().getImage(DisplayUtils.class.getResource("/resource/zap512x512.png")));
-			images.add(Toolkit.getDefaultToolkit().getImage(DisplayUtils.class.getResource("/resource/zap1024x1024.png")));
+			images.add(Toolkit.getDefaultToolkit().getImage(DisplayUtils.class.getResource("/resource/zy.jpg")));
+			images.add(Toolkit.getDefaultToolkit().getImage(DisplayUtils.class.getResource("/resource/zy.jpg")));
+			images.add(Toolkit.getDefaultToolkit().getImage(DisplayUtils.class.getResource("/resource/zy.jpg")));
+			images.add(Toolkit.getDefaultToolkit().getImage(DisplayUtils.class.getResource("/resource/zy.jpg")));
+			images.add(Toolkit.getDefaultToolkit().getImage(DisplayUtils.class.getResource("/resource/zy.jpg")));
+			images.add(Toolkit.getDefaultToolkit().getImage(DisplayUtils.class.getResource("/resource/zy.jpg")));
+			images.add(Toolkit.getDefaultToolkit().getImage(DisplayUtils.class.getResource("/resource/zy.jpg")));
+			images.add(Toolkit.getDefaultToolkit().getImage(DisplayUtils.class.getResource("/resource/zy.jpg")));
 			zapIconImages = Collections.unmodifiableList(images);
 		}
 	}

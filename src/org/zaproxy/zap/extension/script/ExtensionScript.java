@@ -829,7 +829,7 @@ public class ExtensionScript extends ExtensionAdaptor implements CommandLineList
 	 * │   ├── gof_lite.js
 	 * │   ├── TestInsecureHTTPVerbs.py
 	 * │   └── User defined attacks.js
-	 * ├── extender
+	 * ├── ExtensionScript
 	 * │   └── HTTP Message Logger.js
 	 * ├── httpfuzzerprocessor
 	 * │   ├── add_msgs_sites_tree.js
@@ -843,7 +843,7 @@ public class ExtensionScript extends ExtensionAdaptor implements CommandLineList
 	 * }
 	 * </pre>
 	 * 
-	 * where {@code active}, {@code extender}, {@code httpfuzzerprocessor}, {@code httpsender}, and {@code variant} are the
+	 * where {@code active}, {@code ExtensionScript}, {@code httpfuzzerprocessor}, {@code httpsender}, and {@code variant} are the
 	 * script types.
 	 * 
 	 * @param dir the directory from where to add the scripts.

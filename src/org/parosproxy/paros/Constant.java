@@ -127,7 +127,7 @@ import org.zaproxy.zap.utils.ZapXmlConfiguration;
 
 public final class Constant {
 	// ZAP: rebrand
-    public static final String PROGRAM_NAME     		= "OWASP ZAP";
+    public static final String PROGRAM_NAME     		= "ZAP Scanner";
     public static final String PROGRAM_NAME_SHORT 		= "ZAP";
     public static final String ZAP_HOMEPAGE				= "http://www.owasp.org/index.php/ZAP";
     public static final String ZAP_EXTENSIONS_PAGE		= "https://github.com/zaproxy/zap-extensions";

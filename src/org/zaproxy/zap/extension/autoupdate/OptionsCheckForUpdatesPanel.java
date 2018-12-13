@@ -104,11 +104,11 @@ public class OptionsCheckForUpdatesPanel extends AbstractParamPanel {
 							javax.swing.border.TitledBorder.DEFAULT_POSITION,
 							FontUtils.getFont(FontUtils.Size.standard),
 							java.awt.Color.black));
-			
+
 			updPanel.add(getChkCheckAddonUpdates(), LayoutHelper.getGBC(0, 0, 1, 1.0D));
 			updPanel.add(getChkInstallAddonUpdates(), LayoutHelper.getGBC(0, 1, 1, 1.0D));
 			updPanel.add(getChkInstallScannerRules(), LayoutHelper.getGBC(0, 2, 1, 1.0D));
-			
+
 			JPanel newPanel = new JPanel();
 			newPanel.setLayout(new GridBagLayout());
 			newPanel.setBorder(

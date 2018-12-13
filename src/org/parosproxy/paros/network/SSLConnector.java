@@ -122,14 +122,14 @@ public class SSLConnector implements SecureProtocolSocketFactory {
 
     /**
      * The maximum time, in minutes, that the cached misconfigured hosts are considered valid.
-     * 
+     *
      * @see #cacheMisconfiguredHost(String, int, InetAddress)
      */
     private static long MAX_AGE_MISCONFIGURED_HOST_IN_MIN = 5;
 
     /**
      * The maximum time, in milliseconds, that the cached misconfigured hosts are considered valid.
-     * 
+     *
      * @see #MAX_AGE_MISCONFIGURED_HOST_IN_MIN
      * @see #cacheMisconfiguredHost(String, int, InetAddress)
      */
@@ -140,7 +140,7 @@ public class SSLConnector implements SecureProtocolSocketFactory {
      * The hosts are cached for a (short) period of time to avoid (most likely) failed connections.
      * <p>
      * The {@code key} is the hostname+port and the {@code value} the address of the host.
-     * 
+     *
      * @see #MAX_AGE_MISCONFIGURED_HOST_IN_MIN
      * @see #timeStampLastStaleCheck
      * @see #cacheMisconfiguredHost(String, int, InetAddress)
@@ -148,22 +148,22 @@ public class SSLConnector implements SecureProtocolSocketFactory {
      * @see #removeStaleCachedMisconfiguredHosts()
      */
 	private static LRUMap misconfiguredHosts;
-	
+
 	/**
 	 * Time stamp of last time the cache of misconfigured hosts was checked for stale entries.
-	 * 
+	 *
 	 * @see #misconfiguredHosts
 	 * @see #removeStaleCachedMisconfiguredHosts()
 	 */
 	private static long timeStampLastStaleCheck;
 
 	// server related socket factories
-	
+
 	// ZAP: removed ServerSocketFaktory
-	
+
 	// ZAP: Added logger
 	private static final Logger logger = Logger.getLogger(SSLConnector.class);
-	
+
 	private static SSLContextManager sslContextManager = null;
 
 	/*
@@ -233,7 +233,7 @@ public class SSLConnector implements SecureProtocolSocketFactory {
 
 	public SSLSocketFactory getClientSocketFactory(String type) {
 		// Trust all invalid server certificate
-		TrustManager[] trustMgr = new TrustManager[] { new RelaxedX509TrustManager() }; 
+		TrustManager[] trustMgr = new TrustManager[] { new RelaxedX509TrustManager() };
 
 		try {
 			SSLContext sslContext = SSLContext.getInstance(type);
@@ -371,7 +371,7 @@ public class SSLConnector implements SecureProtocolSocketFactory {
 	/**
 	 * Attempts to get a new socket connection to the given host within the
 	 * given time limit.
-	 * 
+	 *
 	 * @param host
 	 *            the host name/IP
 	 * @param port
@@ -382,14 +382,14 @@ public class SSLConnector implements SecureProtocolSocketFactory {
 	 *            the port on the local machine
 	 * @param params
 	 *            {@link HttpConnectionParams Http connection parameters}
-	 * 
+	 *
 	 * @return Socket a new socket
-	 * 
+	 *
 	 * @throws IOException
 	 *             if an I/O error occurs while creating the socket
 	 * @throws UnknownHostException
 	 *             if the IP address of the host cannot be determined
-	 * @throws 	ConnectTimeoutException        
+	 * @throws 	ConnectTimeoutException
 	 */
 	@Override
 	public Socket createSocket(final String host, final int port,
@@ -425,7 +425,7 @@ public class SSLConnector implements SecureProtocolSocketFactory {
 		socket.bind(localAddr);
 		SocketAddress remoteAddr = new InetSocketAddress(host, port);
 		socket.connect(remoteAddr, timeout);
-		
+
 		return socket;
 	}
 
@@ -519,7 +519,7 @@ public class SSLConnector implements SecureProtocolSocketFactory {
 			if (e.getMessage().contains(CONTENTS_UNRECOGNIZED_NAME_EXCEPTION)) {
 				cacheMisconfiguredHost(host, port, InetAddress.getByName(host));
 			}
-			// Throw the exception anyway because the socket might no longer be usable (e.g. closed). The connection will be 
+			// Throw the exception anyway because the socket might no longer be usable (e.g. closed). The connection will be
 			// retried (see HttpMethodDirector#executeWithRetry(HttpMethod) for more information on the retry policy).
 			throw e;
 		}
@@ -529,8 +529,8 @@ public class SSLConnector implements SecureProtocolSocketFactory {
 	 * Create a SSLsocket using an existing connected socket. It can be used
 	 * such as a tunneled SSL proxy socket (eg when a CONNECT request is
 	 * received). This SSLSocket will start server side handshake immediately.
-	 * 
-	 * @param targethost the host where you want to connect to 
+	 *
+	 * @param targethost the host where you want to connect to
 	 * @param socket
 	 * @return
 	 * @throws IOException
@@ -539,7 +539,7 @@ public class SSLConnector implements SecureProtocolSocketFactory {
 		// ZAP: added host name parameter
 		SSLSocket s = (SSLSocket) getTunnelSSLSocketFactory(targethost).createSocket(socket, socket
 				.getInetAddress().getHostAddress(), socket.getPort(), true);
-		
+
 		s.setUseClientMode(false);
 		s.startHandshake();
 		return s;

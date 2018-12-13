@@ -96,7 +96,7 @@ public class ExtensionKeyboard extends ExtensionAdaptor {
 			initAllMenuItems(View.getSingleton().getMainFrame().getMainMenuBar().getMenuReport());
 			initAllMenuItems(View.getSingleton().getMainFrame().getMainMenuBar().getMenuTools());
 			initAllMenuItems(View.getSingleton().getMainFrame().getMainMenuBar().getMenuView());
-			initAllMenuItems(View.getSingleton().getMainFrame().getMainMenuBar().getMenuHelp());
+//			initAllMenuItems(View.getSingleton().getMainFrame().getMainMenuBar().getMenuHelp());
 		}
 	}
 	

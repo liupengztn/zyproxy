@@ -526,11 +526,11 @@ public class MainMenuBar extends JMenuBar {
 	}
 	
 	private ZapMenuItem getMenuHelpSupport() {
-		if (menuHelpSupport == null) {			
+		if (menuHelpSupport == null) {
 			menuHelpSupport = new ZapMenuItem("menu.help.zap.support");
-			menuHelpSupport.addActionListener(new java.awt.event.ActionListener() { 
+			menuHelpSupport.addActionListener(new java.awt.event.ActionListener() {
 				@Override
-				public void actionPerformed(java.awt.event.ActionEvent e) {    
+				public void actionPerformed(java.awt.event.ActionEvent e) {
 					ZapSupportDialog zsd = new ZapSupportDialog(View.getSingleton().getMainFrame(), true);
 					zsd.setVisible(true);
 				}

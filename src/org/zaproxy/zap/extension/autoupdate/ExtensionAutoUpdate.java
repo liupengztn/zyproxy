@@ -195,15 +195,15 @@ public class ExtensionAutoUpdate extends ExtensionAdaptor implements CheckForUpd
 	 */    
 	private ZapMenuItem getMenuItemCheckUpdate() {
 		if (menuItemCheckUpdate == null) {
-			menuItemCheckUpdate = new ZapMenuItem("cfu.help.menu.check", 
+			menuItemCheckUpdate = new ZapMenuItem("cfu.help.menu.check",
 					getView().getMenuShortcutKeyStroke(KeyEvent.VK_U, 0, false));
 			menuItemCheckUpdate.setText(Constant.messages.getString("cfu.help.menu.check"));
-			menuItemCheckUpdate.addActionListener(new java.awt.event.ActionListener() { 
-				@Override
-				public void actionPerformed(java.awt.event.ActionEvent e) {
-					checkForUpdates();
-				}
-
+			menuItemCheckUpdate.addActionListener(new java.awt.event.ActionListener() {
+					@Override
+					public void actionPerformed(java.awt.event.ActionEvent e) {
+						checkForUpdates();
+					}
+//
 			});
 		}
 		return menuItemCheckUpdate;
@@ -578,11 +578,11 @@ public class ExtensionAutoUpdate extends ExtensionAdaptor implements CheckForUpd
 	public void hook(ExtensionHook extensionHook) {
 	    super.hook(extensionHook);
 	    if (getView() != null) {
-	        extensionHook.getHookMenu().addHelpMenuItem(getMenuItemCheckUpdate());
+//	        extensionHook.getHookMenu().addHelpMenuItem(getMenuItemCheckUpdate());
 	        extensionHook.getHookMenu().addFileMenuItem(getMenuItemLoadAddOn());
 	        
-			extensionHook.getHookView().addMainToolBarComponent(getAddonsButton());
-			extensionHook.getHookView().addMainToolBarComponent(getCheckForUpdatesButton());
+//			extensionHook.getHookView().addMainToolBarComponent(getAddonsButton());
+//			extensionHook.getHookView().addMainToolBarComponent(getCheckForUpdatesButton());
 
 			View.getSingleton().getMainFrame().getMainFooterPanel().addFooterToolbarRightLabel(getScanStatus().getCountLabel());
 	    }
@@ -608,11 +608,11 @@ public class ExtensionAutoUpdate extends ExtensionAdaptor implements CheckForUpd
 			addonsButton = new JButton();
 			addonsButton.setIcon(new ImageIcon(ExtensionAutoUpdate.class.getResource("/resource/icon/fugue/block.png")));
 			addonsButton.setToolTipText(Constant.messages.getString("cfu.button.addons.browse"));
-			addonsButton.setEnabled(true);
+			addonsButton.setEnabled(false);
 			addonsButton.addActionListener(new java.awt.event.ActionListener() { 
 				@Override
 				public void actionPerformed(java.awt.event.ActionEvent e) {
-					getAddOnsDialog().setVisible(true);
+					getAddOnsDialog().setVisible(false);
 				}
 			});
 
@@ -625,7 +625,7 @@ public class ExtensionAutoUpdate extends ExtensionAdaptor implements CheckForUpd
             checkForUpdatesButton = new JButton();
             checkForUpdatesButton.setIcon(new ImageIcon(ExtensionAutoUpdate.class.getResource("/resource/icon/fugue/update-zap.png")));
             checkForUpdatesButton.setToolTipText(Constant.messages.getString("cfu.button.checkForUpdates"));
-            checkForUpdatesButton.setEnabled(true);
+            checkForUpdatesButton.setEnabled(false);
             checkForUpdatesButton.addActionListener(new java.awt.event.ActionListener() { 
                 @Override
                 public void actionPerformed(java.awt.event.ActionEvent e) {

@@ -86,7 +86,7 @@ public class SplashScreen extends JFrame {
         BackgroundImagePanel panel = new BackgroundImagePanel();
         panel.setPreferredSize(DisplayUtils.getScaledDimension(420, 430));
         panel.setLayout(new GridBagLayout());
-        panel.setBackgroundImage(SplashScreen.class.getResource("/resource/zap-splash-screen.png"), 0.5);
+        panel.setBackgroundImage(SplashScreen.class.getResource("/resource/jz.jpg"), 0.5);
         
         Border margin = BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED);
         Border padding = BorderFactory.createEmptyBorder(4, 4, 4, 4);

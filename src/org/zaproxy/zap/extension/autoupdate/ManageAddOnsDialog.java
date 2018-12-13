@@ -150,9 +150,9 @@ public class ManageAddOnsDialog extends AbstractFrame implements CheckForUpdateC
 	 * 
 	 */
 	private void initialize() {
-		this.setTitle(Constant.messages.getString("cfu.manage.title"));
+//		this.setTitle(Constant.messages.getString("cfu.manage.title"));
         //this.setContentPane(getJTabbed());
-        this.setContentPane(getTopPanel());
+//        this.setContentPane(getTopPanel());
         this.pack();
         if (Model.getSingleton().getOptionsParam().getViewParam().getWmUiHandlingOption() == 0) {
         	this.setSize(700, 500);
