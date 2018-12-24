@@ -91,7 +91,7 @@ public class ZAP {
         	// i18n messages wont have been loaded
             System.out.println("Failed due to invalid parameters: " + Arrays.toString(args));
             System.out.println(e.getMessage());
-            System.out.println("Use '-h' for more details.");
+            System.out.println("Use '-h' for more details." );
             System.exit(1);
         }
 
