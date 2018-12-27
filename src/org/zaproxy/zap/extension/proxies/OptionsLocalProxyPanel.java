@@ -102,7 +102,7 @@ public class OptionsLocalProxyPanel extends JPanel {
     private ZapPortNumberSpinner getSpinnerProxyPort() {
         if (spinnerProxyPort == null) {
             // Do not allow invalid port numbers
-            spinnerProxyPort = new ZapPortNumberSpinner(8080);
+            spinnerProxyPort = new ZapPortNumberSpinner(8099);
         }
         return spinnerProxyPort;
     }

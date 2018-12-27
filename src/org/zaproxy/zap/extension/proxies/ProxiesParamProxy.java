@@ -24,7 +24,7 @@ import org.zaproxy.zap.utils.Enableable;
 class ProxiesParamProxy extends Enableable {
 
     private String address = "localhost";
-    private int port = 8080;
+    private int port = 8099;
 
     /**
      * Flag that indicates if the proxy ip is any local address.

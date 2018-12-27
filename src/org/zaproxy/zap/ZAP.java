@@ -33,9 +33,10 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.parosproxy.paros.CommandLine;
 import org.parosproxy.paros.network.SSLConnector;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.zaproxy.zap.eventBus.EventBus;
 import org.zaproxy.zap.eventBus.SimpleEventBus;
-
+@EnableScheduling
 public class ZAP {
 
     /**
@@ -80,7 +81,7 @@ public class ZAP {
      *             if something wrong happens
      */
     public static void main(String[] args) throws Exception {
-        setCustomErrStream();
+//        setCustomErrStream();
 
         CommandLine cmdLine = null;
         try {

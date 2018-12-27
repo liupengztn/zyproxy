@@ -1,5 +1,7 @@
 language: java
 script: ant -buildfile build/build.xml test
+server:
+  port: 8090
 
 jdk:
   - oraclejdk8

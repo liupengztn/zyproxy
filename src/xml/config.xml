@@ -5,7 +5,7 @@
 	<connection>
 		<proxyChain>
 			<hostName></hostName>
-			<port>8080</port>
+			<port>8090</port>
 			<skipName></skipName>
 			<realm></realm>
 			<userName></userName>
@@ -22,11 +22,11 @@
 	</connection>
 	<proxy>
 		<ip>localhost</ip>
-		<port>8080</port>
+		<port>8090</port>
 		<reverseProxy>
 			<use>0</use>	
 			<ip>localhost</ip>
-			<httpPort>80</httpPort>
+			<httpPort>90</httpPort>
 			<httpsPort>443</httpsPort>
 		</reverseProxy>		
 		<securityProtocolsEnabled>

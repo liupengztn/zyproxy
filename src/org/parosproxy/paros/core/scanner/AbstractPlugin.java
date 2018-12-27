@@ -92,6 +92,7 @@ public abstract class AbstractPlugin implements Plugin, Comparable<Object> {
 
     /**
      * Default pattern used in pattern check for most plugins.
+     * 大多数插件的模式检查中使用的默认模式。
      */
     protected static final int PATTERN_PARAM = Pattern.CASE_INSENSITIVE | Pattern.MULTILINE;
     /**

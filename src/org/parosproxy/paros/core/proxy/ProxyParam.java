@@ -90,7 +90,7 @@ public class ProxyParam extends AbstractParam {
     private static final String ALWAYS_DECODE_GZIP = "proxy.decodeGzip";
 
     private String proxyIp = "localhost";
-    private int proxyPort = 8080;
+    private int proxyPort = 8099;
     private int proxySSLPort = 8443;
     private int useReverseProxy = 0;
     private String reverseProxyIp = "localhost";

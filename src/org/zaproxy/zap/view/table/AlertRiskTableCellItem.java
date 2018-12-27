@@ -72,7 +72,7 @@ public class AlertRiskTableCellItem implements Comparable<AlertRiskTableCellItem
      * <p>
      * Should be used when there's no alerts therefore no risk.
      * </p>
-     * 
+     * 表示非{@code Alert}的风险。它有一个空名称和值{@literal -1}。 * <p> *应该在没有警报时使用，因此没有风险
      * @see Alert#RISK_INFO
      * @see Alert#RISK_LOW
      * @see Alert#RISK_MEDIUM
@@ -82,7 +82,7 @@ public class AlertRiskTableCellItem implements Comparable<AlertRiskTableCellItem
 
     /**
      * Represents an undefined {@code Alert}'s risk. It has the name as {@literal undefined} and value {@literal -2}.
-     * 
+     * 表示未定义的{@code Alert}的风险。它的名称为{@literal undefined}和值{@literal -2}。
      * @see Alert#RISK_INFO
      * @see Alert#RISK_LOW
      * @see Alert#RISK_MEDIUM
@@ -151,7 +151,10 @@ public class AlertRiskTableCellItem implements Comparable<AlertRiskTableCellItem
      * <p>
      * If the given {@code risk} is not {@literal -1} but it's not one of the risks defined an {@code UNDEFINED_RISK_CELL_ITEM}
      * will be returned.
-     * 
+     * 返回给定{@code risk}的{@code AlertTableCellItem}。如果风险为{@literal -1}，
+     * 则返回的* {@code AlertTableCellItem}将为{@code NO_RISK_CELL_ITEM}。
+     * * <p> *如果给定的{@code risk}不是{@literal -1}，但它不是定义的风险之一，
+     * 则会返回{@code UNDEFINED_RISK_CELL_ITEM} *。
      * @param risk the risk of the alert
      * @return the {@code AlertTableCellItem} for the given {@code risk}.
      * @see #NO_RISK_CELL_ITEM

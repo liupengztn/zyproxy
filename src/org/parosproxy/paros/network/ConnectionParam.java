@@ -122,7 +122,7 @@ public class ConnectionParam extends AbstractParam {
 
     private boolean useProxyChain;
 	private String proxyChainName = "";
-	private int proxyChainPort = 8080;
+	private int proxyChainPort = 8090;
 	private boolean confirmRemoveProxyExcludeDomain = true;
 	private boolean useProxyChainAuth;
 	private String proxyChainRealm = "";
@@ -184,7 +184,7 @@ public class ConnectionParam extends AbstractParam {
 		useProxyChainAuth = getBoolean(USE_PROXY_CHAIN_AUTH_KEY, false);
 
 		setProxyChainName(getString(PROXY_CHAIN_NAME, ""));
-		setProxyChainPort(getInt(PROXY_CHAIN_PORT, 8080));
+		setProxyChainPort(getInt(PROXY_CHAIN_PORT, 8099));
 
 		loadProxyExcludedDomains();
 		this.confirmRemoveProxyExcludeDomain = getBoolean(CONFIRM_REMOVE_EXCLUDED_DOMAIN, true);
