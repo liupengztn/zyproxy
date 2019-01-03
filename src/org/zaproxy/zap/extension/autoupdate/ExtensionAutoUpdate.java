@@ -1255,7 +1255,7 @@ public class ExtensionAutoUpdate extends ExtensionAdaptor implements CheckForUpd
         if (options.isInstallAddonUpdates()) {
             logger.debug("Auto-downloading addons");
             processAddOnChanges(null, result);
-            
+
             return false;
         }
 

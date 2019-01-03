@@ -480,9 +480,9 @@ public class MainMenuBar extends JMenuBar {
 		if (menuHelp == null) {
 			menuHelp = new JMenu();
 			menuHelp.setText(Constant.messages.getString("menu.help")); // ZAP: i18n
-			menuHelp.setMnemonic(Constant.messages.getChar("menu.help.mnemonic"));
+//			menuHelp.setMnemonic(Constant.messages.getChar("menu.help.mnemonic"));
 			menuHelp.add(getMenuHelpAbout());
-			menuHelp.add(getMenuHelpSupport());
+//			menuHelp.add(getMenuHelpSupport());
 		}
 		return menuHelp;
 	}
@@ -490,8 +490,8 @@ public class MainMenuBar extends JMenuBar {
 	public JMenu getMenuOnline() {
 		if (menuOnline == null) {
 			menuOnline = new JMenu();
-			menuOnline.setText(Constant.messages.getString("menu.online"));
-			menuOnline.setMnemonic(Constant.messages.getChar("menu.online.mnemonic"));
+//			menuOnline.setText(Constant.messages.getString("menu.online"));
+//			menuOnline.setMnemonic(Constant.messages.getChar("menu.online.mnemonic"));
 		}
 		return menuOnline;
 	}
@@ -513,9 +513,9 @@ public class MainMenuBar extends JMenuBar {
 	private ZapMenuItem getMenuHelpAbout() {
 		if (menuHelpAbout == null) {
 			menuHelpAbout = new ZapMenuItem("menu.help.about");
-			menuHelpAbout.addActionListener(new java.awt.event.ActionListener() { 
+			menuHelpAbout.addActionListener(new java.awt.event.ActionListener() {
 				@Override
-				public void actionPerformed(java.awt.event.ActionEvent e) {    
+				public void actionPerformed(java.awt.event.ActionEvent e) {
 					AboutDialog dialog = new AboutDialog(View.getSingleton().getMainFrame(), true);
 					dialog.setVisible(true);
 				}

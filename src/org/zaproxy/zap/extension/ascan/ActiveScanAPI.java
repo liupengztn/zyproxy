@@ -27,9 +27,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.regex.PatternSyntaxException;
 
-import net.sf.json.JSON;
-import net.sf.json.JSONException;
-import net.sf.json.JSONObject;
+import net.sf.json.*;
 
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.httpclient.URI;
@@ -112,6 +110,7 @@ public class ActiveScanAPI extends ApiImplementor {
 	private static final String VIEW_STATUS = "status";
 	private static final String VIEW_SCANS = "scans";
 	private static final String VIEW_MESSAGES_IDS = "messagesIds";
+	private static final String VIEW_MESSAGES = "messages";
 	private static final String VIEW_ALERTS_IDS = "alertsIds";
 	private static final String VIEW_EXCLUDED_FROM_SCAN = "excludedFromScan";
 	private static final String VIEW_SCANNERS = "scanners";
@@ -201,6 +200,7 @@ public class ActiveScanAPI extends ApiImplementor {
 		this.addApiView(new ApiView(VIEW_STATUS, null, new String[] { PARAM_SCAN_ID }));
 		this.addApiView(new ApiView(VIEW_SCAN_PROGRESS, null, new String[] { PARAM_SCAN_ID }));
 		this.addApiView(new ApiView(VIEW_MESSAGES_IDS, new String[] { PARAM_SCAN_ID }));
+		this.addApiView(new ApiView(VIEW_MESSAGES, new String[] { PARAM_SCAN_ID }));
 		this.addApiView(new ApiView(VIEW_ALERTS_IDS, new String[] { PARAM_SCAN_ID }));
 		this.addApiView(new ApiView(VIEW_SCANS));
 		this.addApiView(new ApiView(VIEW_SCAN_POLICY_NAMES));
@@ -894,6 +894,34 @@ public class ActiveScanAPI extends ApiImplementor {
 			}
 			result = resultList;
 			break;
+			case VIEW_MESSAGES:
+				resultList = new ApiResponseList(name);
+				activeScan = getActiveScan(params);
+				List<Map<String,String>> list = new ArrayList<>();
+				if (activeScan != null) {
+					synchronized (activeScan.getMessagesIds()) {
+						for (int i = 0; i < ((ActiveScanTableModel) ((ActiveScanTableModel) activeScan.getMessagesTableModel())).getRowCount(); i ++) {
+							Map<String,String> api = new HashMap();
+							api.put("id", ((ActiveScanTableModel) ((ActiveScanTableModel) activeScan.getMessagesTableModel())).getEntry(i).getHistoryId().toString());
+//							api.put("Req.Timestamp", ((ActiveScanTableModel) ((ActiveScanTableModel) activeScan.getMessagesTableModel())).getEntry(i).getRequestTimestamp().toString());
+//							api.put("Resp.Timestamp", ((ActiveScanTableModel) ((ActiveScanTableModel) activeScan.getMessagesTableModel())).getEntry(i).getResponseTimestamp().toString());
+							api.put("method", ((ActiveScanTableModel) ((ActiveScanTableModel) activeScan.getMessagesTableModel())).getEntry(i).getMethod().toString());
+							api.put("url", ((ActiveScanTableModel) ((ActiveScanTableModel) activeScan.getMessagesTableModel())).getEntry(i).getUri().toString());
+							api.put("code", ((ActiveScanTableModel) ((ActiveScanTableModel) activeScan.getMessagesTableModel())).getEntry(i).getStatusCode().toString());
+							api.put("reason", ((ActiveScanTableModel) ((ActiveScanTableModel) activeScan.getMessagesTableModel())).getEntry(i).getReason().toString());
+							api.put("rtt", ((ActiveScanTableModel) ((ActiveScanTableModel) activeScan.getMessagesTableModel())).getEntry(i).getRtt().toString());
+							api.put("sizerespHeader", ((ActiveScanTableModel) ((ActiveScanTableModel) activeScan.getMessagesTableModel())).getEntry(i).getResponseHeaderSize().toString());
+							api.put("sizerespBody", ((ActiveScanTableModel) ((ActiveScanTableModel) activeScan.getMessagesTableModel())).getEntry(i).getResponseBodySize().toString());
+							list.add(api);
+						}
+						JSONArray json = JSONArray.fromObject(list);
+						String s  = list.toString();
+						resultList.addItem(new ApiResponseElement("id", s.toString()));
+					}
+				}
+
+				result =resultList;
+				break;
 		case VIEW_ALERTS_IDS:
 			resultList = new ApiResponseList(name);
 			activeScan = getActiveScan(params);

@@ -19,6 +19,7 @@ package org.zaproxy.zap.extension.api;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import net.sf.json.JSON;
 import net.sf.json.JSONArray;
@@ -32,6 +33,7 @@ import org.zaproxy.zap.utils.JsonUtil;
 public class ApiResponseList extends ApiResponse {
 	
 	private List<ApiResponse> list = null;
+	private List<Map<String,String>> listMap = null;
 
 	public ApiResponseList(String name) {
 		super(name);
@@ -54,9 +56,15 @@ public class ApiResponseList extends ApiResponse {
 	public void addItem(ApiResponse item) {
 		this.list.add(item);
 	}
+	public void addMap(Map<String,String> item) {
+		this.listMap.add(item);
+	}
 	
 	public List<ApiResponse> getItems() {
 		return this.list;
+	}
+	public List<Map<String,String>> getMap() {
+		return this.listMap;
 	}
 	
 	public Class<? extends ApiResponse> getItemsClass() {

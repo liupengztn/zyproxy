@@ -222,9 +222,9 @@ public class ExtensionHelp extends ExtensionAdaptor {
 
 		} else {
 			String toolTipNoHelp = Constant.messages.getString("help.error.nohelp");
-			getMenuHelpZapUserGuide().setEnabled(false);
-			getMenuHelpZapUserGuide().setToolTipText(toolTipNoHelp);
-			getMenuHelpZapUserGuide().removeActionListener(showHelpActionListener);
+//			getMenuHelpZapUserGuide().setEnabled(false);
+//			getMenuHelpZapUserGuide().setToolTipText(toolTipNoHelp);
+//			getMenuHelpZapUserGuide().removeActionListener(showHelpActionListener);
 
 			rootPane.unregisterKeyboardAction(KeyStroke.getKeyStroke(KeyEvent.VK_HELP, 0));
 			rootPane.unregisterKeyboardAction(KeyStroke.getKeyStroke(KeyEvent.VK_F1, 0));
@@ -430,10 +430,10 @@ public class ExtensionHelp extends ExtensionAdaptor {
 	}
 
 	private ZapMenuItem getMenuHelpZapUserGuide() {
-		if (menuHelpZap == null) {
-			menuHelpZap = new ZapMenuItem("help.menu.guide",
-					KeyStroke.getKeyStroke(KeyEvent.VK_F1, 0, false));
-		}
+//		if (menuHelpZap == null) {
+//			menuHelpZap = new ZapMenuItem("help.menu.guide",
+//					KeyStroke.getKeyStroke(KeyEvent.VK_F1, 0, false));
+//		}
 		return menuHelpZap;
 	}
 	

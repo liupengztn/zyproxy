@@ -1,7 +1,6 @@
 Building
 ========
 
-The installers for Linux, macOS, and Windows are built using install4j's Gradle plugin (but Ant is required to build ZAP's distribution files included in the installers). The Windows executable bundled in the Windows installers is built with Gradle plugin [gradle-launch4j](https://github.com/TheBoegl/gradle-launch4j).
 
 Following the steps to build the installers:
 1. Run Ant target `full-release`, to build ZAP's distribution files;
