@@ -553,6 +553,7 @@ public class AddOn  {
 		this.notBeforeVersion = zapAddOnXml.getNotBeforeVersion();
 		this.notFromVersion = zapAddOnXml.getNotFromVersion();
 		this.dependencies = zapAddOnXml.getDependencies();
+		this.info = createInfoUrl(zapAddOnXml.getUrl());
 
 		this.ascanrules = zapAddOnXml.getAscanrules();
 		this.extensions = zapAddOnXml.getExtensions();
@@ -607,18 +608,21 @@ public class AddOn  {
 		this.size = addOnData.getSize();
 		this.notBeforeVersion = addOnData.getNotBeforeVersion();
 		this.notFromVersion = addOnData.getNotFromVersion();
-		if (addOnData.getInfo() != null && !addOnData.getInfo().isEmpty()) {
-			try {
-				this.info = new URL(addOnData.getInfo());
-			} catch (Exception ignore) {
-				if (logger.isDebugEnabled()) {
-					logger.debug("Wrong info URL for add-on \"" + name + "\":", ignore);
-				}
-			}
-		}
+		this.info = createInfoUrl(addOnData.getInfo());
 		this.hash = addOnData.getHash();
 		
 		loadManifestFile();
+	}
+
+	private URL createInfoUrl(String url) {
+		if (url != null && !url.isEmpty()) {
+			try {
+				return new URL(url);
+			} catch (Exception e) {
+				logger.warn("Invalid info URL for add-on \"" + id + "\":", e);
+			}
+		}
+		return null;
 	}
 
 	public String getId() {
@@ -2114,7 +2118,7 @@ public class AddOn  {
 		private final ValidationResult validationResult;
 
 		private InvalidAddOnException(ValidationResult validationResult) {
-			super(getRootCauseMessage(validationResult.getException()), validationResult.getException());
+			super(getRootCauseMessage(validationResult), validationResult.getException());
 			this.validationResult = validationResult;
 		}
 
@@ -2128,9 +2132,10 @@ public class AddOn  {
 		}
 	}
 
-	private static String getRootCauseMessage(Exception exception) {
+	private static String getRootCauseMessage(ValidationResult validationResult) {
+		Exception exception = validationResult.getException();
 		if (exception == null) {
-			return null;
+			return validationResult.getValidity().toString();
 		}
 		Throwable root = ExceptionUtils.getRootCause(exception);
 		return root == null ? exception.getLocalizedMessage() : root.getLocalizedMessage();

@@ -29,7 +29,7 @@ import org.parosproxy.paros.common.AbstractParam;
  * A version number is saved in the configuration file to keep track of changes between releases, in case changes/updates are
  * needed.
  *
- * @since 2.4.0
+ * @since
  * @see AbstractParam
  */
 public abstract class VersionedAbstractParam extends AbstractParam {
