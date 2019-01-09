@@ -81,7 +81,7 @@ public class ZAP {
      *             if something wrong happens
      */
     public static void main(String[] args) throws Exception {
-//        setCustomErrStream();
+        setCustomErrStream();
 
         CommandLine cmdLine = null;
         try {

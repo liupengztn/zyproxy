@@ -1,0 +1,47 @@
+
+plugins {
+    id 'com.install4j.gradle' version '6.1.6'
+    id 'edu.sc.seis.launch4j' version '2.4.4'
+}
+version file('version.txt').getText('UTF-8')
+
+ext.jarname = 'zap'
+
+install4j {
+    installDir = file("C:\\Program Files\\install4j7")
+    license = "E-W7-AUTO#867200-2019.03.06-90-2cqptey2r5ts5z#726b9"
+}
+
+task buildInstallers(type: com.install4j.gradle.Install4jTask) {
+    group 'assemble'
+    description 'Builds the installers.'
+    projectFile = file('zap.install4j')
+    variables = [version: version]
+    destination = "$buildDir/install4j"
+}
+
+launch4j {
+    libraryDir = '.'
+
+    mainClassName = 'org.zaproxy.zap.ZAP'
+    jar = "zap-dev.jar"
+
+    dontWrapJar = true
+
+    version = project.version
+    textVersion = project.version
+
+    outfile = 'ZAP.exe'
+    chdir = ''
+    icon = 'src/resource/zap64x64.png'
+
+    jdkPreference = 'preferJdk'
+    maxHeapSize = 512
+    maxHeapPercent = 25
+
+    fileDescription = 'OWASP Zed Attack Proxy'
+    copyright = 'The OWASP Zed Attack Proxy Project'
+    productName = 'OWASP Zed Attack Proxy'
+    companyName = 'OWASP'
+    internalName = 'zaproxy1'
+}

@@ -206,9 +206,9 @@ public class ExtensionHelp extends ExtensionAdaptor {
 
 			loadAddOnHelpSets(ExtensionFactory.getAddOnLoader().getAddOnCollection().getInstalledAddOns());
 
-			getMenuHelpZapUserGuide().addActionListener(showHelpActionListener);
-			getMenuHelpZapUserGuide().setToolTipText(null);
-			getMenuHelpZapUserGuide().setEnabled(true);
+//			getMenuHelpZapUserGuide().addActionListener(showHelpActionListener);
+//			getMenuHelpZapUserGuide().setToolTipText(null);
+//			getMenuHelpZapUserGuide().setEnabled(true);
 
 			// Enable the top level F1 help key
 			hb.enableHelpKey(rootPane, "zap.intro", hs, "javax.help.SecondaryWindow", null);

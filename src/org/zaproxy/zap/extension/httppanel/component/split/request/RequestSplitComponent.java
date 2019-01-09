@@ -97,10 +97,10 @@ public class RequestSplitComponent<T extends Message> implements HttpPanelCompon
 		splitMain.setResizeWeight(0.5d);
 		splitMain.setContinuousLayout(false);
 		splitMain.setOrientation(JSplitPane.VERTICAL_SPLIT);
-		
+
 		splitMain.setTopComponent(headerViews.getViewsPanel());
 		splitMain.setBottomComponent(bodyViews.getViewsPanel());
-		
+
 		initViews();
 
 		panelMain = new JPanel(new BorderLayout());

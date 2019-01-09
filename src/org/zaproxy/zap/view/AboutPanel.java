@@ -78,9 +78,9 @@ public class AboutPanel extends JPanel {
 		GridBagConstraints gbcLogo = new GridBagConstraints();
 		
 		this.setPreferredSize(new Dimension(420, 460));
-		this.setBackground(Color.white);
+		this.setBackground(Color.RED);
 		this.setBorder(BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-		
+
 		
 		JLabel lblDisclaimer = new JLabel();
 		JLabel lblCopyright = new JLabel();

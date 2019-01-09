@@ -517,10 +517,10 @@ public class CommandLine {
     public static String getHelp(List<CommandLineArgument[]> cmdList) {
         String zap;
         if (Constant.isWindows()) {
-            zap = "zap.bat";
+            zap = "zyScanner.bat";
             
         } else {
-            zap = "zap.sh";
+            zap = "zyScanner.sh";
         }
         StringBuilder sb = new StringBuilder();
         sb.append(Constant.messages.getString("cmdline.help", zap));

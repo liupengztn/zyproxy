@@ -36,6 +36,7 @@
 
 package org.parosproxy.paros.view;
 
+import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.awt.event.ActionEvent;
@@ -112,6 +113,7 @@ public class MainMenuBar extends JMenuBar {
         this.add(getMenuTools());
         this.add(getMenuOnline());
         this.add(getMenuHelp());
+		this.setBackground(Color.RED);
 			
 	}
 	/**

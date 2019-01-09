@@ -118,7 +118,7 @@ public class GuiBootstrap extends ZapBootstrap {
 
         if (isShowLicense()) {
             setupLookAndFeel();
-//            showLicense();
+            showLicense();
         } else {
             boolean firstTime = isFirstTime();
             if (firstTime) {
@@ -190,7 +190,7 @@ public class GuiBootstrap extends ZapBootstrap {
             Locale.setDefault(Locale.Category.FORMAT, Constant.getSystemsLocale());
         }
 
-//        View.getSingleton().showSplashScreen();
+        View.getSingleton().showSplashScreen();
 
         promptForProxyDetailsIfNeeded(options);
 

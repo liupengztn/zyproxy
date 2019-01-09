@@ -198,8 +198,8 @@ public class MainToolbarPanel extends JPanel {
 	private JComboBox<String> getModeSelect() {
 		if (modeSelect == null) {
 			modeSelect = new JComboBox<>();
-			modeSelect.addItem(Constant.messages.getString("view.toolbar.mode.safe.select"));
-			modeSelect.addItem(Constant.messages.getString("view.toolbar.mode.protect.select"));
+//			modeSelect.addItem(Constant.messages.getString("view.toolbar.mode.safe.select"));
+//			modeSelect.addItem(Constant.messages.getString("view.toolbar.mode.protect.select"));
 			modeSelect.addItem(Constant.messages.getString("view.toolbar.mode.standard.select"));
 			modeSelect.addItem(Constant.messages.getString("view.toolbar.mode.attack.select"));
 			
@@ -211,10 +211,10 @@ public class MainToolbarPanel extends JPanel {
 			// Control wont have finished initialising yet, so get from the params
 			Mode mode = Mode.valueOf(Model.getSingleton().getOptionsParam().getViewParam().getMode());
 			switch (mode) {
-				case safe:		modeSelect.setSelectedIndex(0); break;
-				case protect:	modeSelect.setSelectedIndex(1); break;
-				case standard:	modeSelect.setSelectedIndex(2); break;
-				case attack:	modeSelect.setSelectedIndex(3); break;
+//				case safe:		modeSelect.setSelectedIndex(0); break;
+//				case protect:	modeSelect.setSelectedIndex(1); break;
+				case standard:	modeSelect.setSelectedIndex(0); break;
+				case attack:	modeSelect.setSelectedIndex(1); break;
 			}
 
 			modeSelect.addActionListener(new java.awt.event.ActionListener() { 
